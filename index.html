@@ -1,0 +1,143 @@
+ <!DOCTYPE html>
+<!-- CS 275 Project 03 Ransom Note-->
+
+<html lang="en">
+	<head>
+		<title>Ransom Note</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="ransomNote.css">
+	</head>
+		
+		<body>
+			<header>
+				<h1>Create a Ransom Note</h1>
+				<img src= "thief.png" id = "thief" alt = "Thief" width ="115" height = "115">
+			</header>
+			<main>
+					<h3>Ransom Letter:</h3> 
+					<br>
+					<textarea rows="12" cols="100" id ="originalString" spellcheck="true">Please input ransom letter then hit submit</textarea>	
+					<br>
+					<input type="submit" id = "submitButton" value="Submit" onclick = "ransomLettering();">
+				
+					
+				<div id = "letterBackground">
+				<hr>
+					<p id = "letter"> </p>
+				</div>
+
+			</main>
+			<footer>
+				Brought to you by RANSACK, bringing quality letters to you!
+			</footer>
+			<script>
+				var original = document.getElementById("originalString");
+				var originalChar = "";
+				var letterOutput = document.getElementById("letter").innerHTML;
+				var spanTag;
+				function ransomLettering(){
+					document.getElementById("letter").innerHTML = "";
+					for (i = 0; i<= original.value.length-1; i++){
+						
+						originalChar = original.value.charAt(i);
+						
+						spanTag = document.createElement("span");
+						var node = document.createTextNode(originalChar);
+						spanTag.appendChild(node);
+						if(originalChar == " "){
+							//If statement is meant to prevent spaces from getting background colors and borders. Because the font size of the letter is large, give a lot of space between words
+							document.getElementById("letter").innerHTML = document.getElementById("letter").innerHTML + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp";
+						}
+						else{
+							boldItalics();
+							fontColor();
+							fontSize();
+							borderLines();
+							backgroundColor();
+							letterTilt();
+							fontFamily();
+							
+							var element = document.getElementById("letter");
+							element.appendChild(spanTag);
+						}
+					}
+				}
+				function boldItalics(){
+					var randomBoldItalics = Math.floor(Math.random() * 4);
+					if (randomBoldItalics == 0){
+						spanTag.style.fontWeight = "bold";
+					}
+					else if (randomBoldItalics == 1){
+						spanTag.style.fontStyle = "italic";
+					}
+					else if (randomBoldItalics == 2){
+						spanTag.style.fontWeight = "bold";
+						spanTag.style.fontStyle = "italic";
+					}
+					//If 3 do nothing
+				}
+				
+				function fontColor(){
+					var randomFontColorRed = Math.floor(Math.random() * 256);
+					var randomFontColorGreen = Math.floor(Math.random() * 256);
+					var randomFontColorBlue = Math.floor(Math.random() * 256);
+					spanTag.style.color = "rgb(" + randomFontColorRed + "," + randomFontColorGreen + ", " + randomFontColorBlue + ")";
+				}
+				function fontSize(){
+					var randomFontSize = Math.floor((Math.random() * 32) + 40);
+					spanTag.style.fontSize = randomFontSize + "px";
+				}
+				function borderLines(){
+					var randomBorderLine = Math.floor(Math.random() * 5);
+					if(randomBorderLine == 0){
+						spanTag.style.border = "solid";
+					}
+					else if(randomBorderLine == 1){
+						spanTag.style.border = "dotted";
+					}
+					else if(randomBorderLine == 2){
+						spanTag.style.border = "dashed";
+					}
+					else if(randomBorderLine == 3){
+						spanTag.style.border = "double";
+					}
+					else {
+						spanTag.style.border = "none";
+					}
+				}
+				function backgroundColor(){
+					var randomBackgroundColorRed = Math.floor(Math.random() * 256);
+					var randomBackgroundColorGreen = Math.floor(Math.random() * 256);
+					var randomBackgroundColorBlue = Math.floor(Math.random() * 256);
+					spanTag.style.backgroundColor = "rgb(" + randomBackgroundColorRed + "," + randomBackgroundColorGreen + ", " + randomBackgroundColorBlue + ")";
+				}
+				
+				function letterTilt(){
+					var randomLetterTilt = Math.floor(Math.random() * 10);
+					// Code for IE9
+					spanTag.style.msTransform = "rotate(" + randomLetterTilt + "deg)";
+					// Code for Safari
+					spanTag.style.WebkitTransform = "rotate(" + randomLetterTilt + "deg)"; 
+					// Standard syntax
+					spanTag.style.transform = "rotate(" + randomLetterTilt + "deg)";
+				}
+			
+				function fontFamily(){
+					var randomFontFamily = Math.floor(Math.random() * 4);
+					if(randomFontFamily == 0){
+						spanTag.style.fontFamily = "Times New Roman, Times, serif";
+					}
+					else if(randomFontFamily == 1){
+						spanTag.style.fontFamily = "Comic Sans MS, cursive, sans-serif";
+					}
+					else if(randomFontFamily == 2){
+						spanTag.style.fontFamily = "Courier New, Courier, monospace";
+					}
+					else {
+						spanTag.style.fontFamily = "Georgia, serif";
+					}
+				}
+				
+			</script>
+		</body>
+</html>

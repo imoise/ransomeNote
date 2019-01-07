@@ -1,0 +1,47 @@
+header{
+	text-align:center;
+	background-color: black;
+	color: white;
+	font-size: 32px;
+	
+	}
+h3{
+	text-align:center;
+	font-size: 24px;
+}
+#originalString{
+	font-size: 14px;
+	margin-left: 220px;
+	
+}
+#submitButton{
+	margin-left: 220px;
+	font-size: 14px;
+	background-color:rgb(0, 0, 0);
+	color: orange;
+	border-color: rgb(0, 200, 0);
+	border-style: solid;
+	height: 20px;
+	width: 100px;
+	
+	
+	
+}
+#thief{
+	  border:5px solid white;
+	  background-color:white;
+}
+main{
+	background-color: rgb(255, 0, 0);
+	border-color: rgb(0, 0, 0);
+	border-style: solid;
+}
+
+#letterBackground{
+	background-color: rgb(255,222,173);
+	padding-bottom:60%;
+}
+footer{
+	border:5px solid black;
+	padding: 10px;
+}
